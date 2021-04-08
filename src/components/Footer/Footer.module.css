@@ -1,0 +1,14 @@
+.mleft {
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.mleft:visited {
+    color: inherit;
+}
+
+.mleft:hover {
+    color: #999999;
+    text-decoration: none;
+}
+
