@@ -1,16 +1,14 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
 
 import Layout from '../../components/Layout/Layout';
-import * as styles from './Home.module.css';
+import SortingVisualBox from '../../components/VisualBox/SortingVisualBox';
+
 
 const Home = () => {
     
     return (
         <Layout>
-            <div className={styles.mainDisplay}>
-                
-            </div>
+            <SortingVisualBox/>
         </Layout>
     )
 }

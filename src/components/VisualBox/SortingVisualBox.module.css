@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin: 10px !important;
+}

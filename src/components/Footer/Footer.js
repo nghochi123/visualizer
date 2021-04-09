@@ -1,8 +1,6 @@
 import React from 'react';
 import {Container, Grid} from '@material-ui/core';
 
-import * as styles from './Footer.module.css'
-
 const Footer = (props) => {
     return (
         <Container>

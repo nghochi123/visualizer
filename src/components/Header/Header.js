@@ -13,7 +13,7 @@ const Header = (props) => {
             <Grid container direction="row" justify="center" alignItems="center">
                 <Grid item xs={6}>
                     <div style={{display: 'flex'}}>
-                        <p style={{fontSize: '2rem'}}>Visualisation tool</p>
+                        <p style={{fontSize: '2rem'}}>Visualisation</p>
                     </div>
                 </Grid>
                 <Grid item xs={6}>

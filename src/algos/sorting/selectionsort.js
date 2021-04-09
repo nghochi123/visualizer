@@ -1,21 +1,25 @@
 import wait from '../../helperfunctions/wait';
 import Bar from '../../components/VisualBox/Bar/Bar';
 
-//Implementation of bubble sort
+//Implementation of selection sort
 
-
-const bubblesort = async (array, setArray, setBars, width, delay) => {
+const selectionSort = async (array, setArray, setBars, width, delay) => {
     let max = array.length + 1;
-    for(let i = array.length; i > 0; i --){
-        for(let j = 0; j < i-1; j++){
+    for(let i = 0; i<array.length;i++){
+        let lowest = i;
+        for(let j = i; j < array.length; j++){
             setArray(array);
+            // eslint-disable-next-line no-loop-func
             setBars(array.map((c, index)=>{
                 let height = (c/max)*300;
                 let action = 'bar';
-                if(index === j || index === j+1){
+                if(index === j){
                     action = 'comparing';
                 }
-                else if (index > i-1){
+                else if(index === lowest){
+                    action = 'lowest';
+                }
+                else if (index < i){
                     action = 'sorted';
                 }
                 return (
@@ -28,11 +32,13 @@ const bubblesort = async (array, setArray, setBars, width, delay) => {
                     />
                 )
             }))
-            if(array[j] > array[j+1]){
-                [array[j], array[j+1]] = [array[j+1], array[j]];
+            if(array[j] < array[lowest]){
+                lowest = j;
             }
             await wait(delay);
         }
+        if(i !== lowest) [array[lowest], array[i]] = [array[i], array[lowest]];
+        
     }
     setBars(array.map((c, index)=>{
         let height = (c/max)*300;
@@ -48,4 +54,4 @@ const bubblesort = async (array, setArray, setBars, width, delay) => {
     }))
 }
 
-export default bubblesort;
+export default selectionSort;

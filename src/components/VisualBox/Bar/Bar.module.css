@@ -1,0 +1,49 @@
+.bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #118ab2;
+    margin: 5px;
+}
+
+.comparing {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #ffd166;
+    margin: 5px;
+}
+
+.lowest {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #ef476f;
+    margin: 5px;
+}
+
+.sorted {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #06d6a0;
+    margin: 5px;
+}
+
+.pivot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: #073b4c;
+    margin: 5px;
+}
+    
+
+.text {
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.nodisplay {
+    display: none;
+}

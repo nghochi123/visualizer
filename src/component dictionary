@@ -1,0 +1,9 @@
+Components:
+
+VisualBox: A layout component where all the bars for sorting elements will be stored in.
+Bar: Individual bars used for sorting elements
+
+Functions:
+
+wait (ms): waits for a certain number of ms
+randomize (size, maxVal, setArray): returns a randomized array of a certain size and a certain max value, and uses a provided setArray function.
