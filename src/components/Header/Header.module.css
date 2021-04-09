@@ -2,41 +2,6 @@
     padding: 1rem 0;
     margin-bottom: 10px;
 }
-
-.logo {
-    margin: 0;
-    padding-left: 20px;
-    font-weight: 400;
-}
-
-.textLink {
-    text-decoration: none;
-}
-
-.textLink:visited {
-    color: inherit;
-}
-
-.link {
-    font-weight: 400;
-    margin-right: 4rem;
-    text-decoration: none;
-    padding-bottom:5px;
-}
-
-.link:visited {
-    color: inherit;
-}
-
-.link:hover {
-    color:#999999;
-}
-
-.search{
-    margin: 5px;
-    width: 100%;
-}
-
 .navlist {
     display: flex;
     list-style-type: none;
@@ -44,52 +9,7 @@
     justify-content: left;
     padding-left: 0;
 }
-.inverse {
-    color: #ffffff
-}
-
-.changeModeIcon {
-    cursor: pointer;
-}
-
-.active {
-    color:#2980b9;
-    font-weight: 600;
-    background-image: linear-gradient(#2980b9, #2980b9);
-    background-position: 100% 100%;
-    background-size: 100% 5px;
-}
-
 .mleft {
-    font-size: 1.2rem;
     margin-left: 15px;
 }
 
-.icon {
-    font-size: 150%;
-    margin-right: 15px;
-}
-
-.alink{
-    color:inherit;
-}
-
-.alink:visited{
-    color:inherit;
-}
-
-.website:hover{
-    color:#7c7c7c;
-}
-
-.github:hover {
-    color: #7844c5
-}
-
-.mail:hover{
-    color:#7c7c7c;
-}
-
-.linkedin:hover{
-    color: #0077b5;
-}

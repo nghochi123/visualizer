@@ -13,12 +13,12 @@ const Header = (props) => {
             <Grid container direction="row" justify="center" alignItems="center">
                 <Grid item xs={6}>
                     <div style={{display: 'flex'}}>
-                        <p style={{fontSize: '2rem'}}>Visualisation</p>
+                        <p style={{fontSize: '1.5rem'}}>Visualisation</p>
                     </div>
                 </Grid>
                 <Grid item xs={6}>
                     <div style={{display: 'flex', justifyContent: 'right'}}>
-                        <p className={`${styles.mleft} ${styles.changeModeIcon}`}>
+                        <p className={styles.mleft}>
                             Toggle Dark Mode
                             <Switch 
                                 checked={state.darkMode} 

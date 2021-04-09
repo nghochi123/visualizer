@@ -6,6 +6,12 @@
     margin: 5px;
 }
 
+@media only screen and (max-width: 600px) {
+    .bar {
+        margin: 1px;
+    }
+}
+
 .comparing {
     display: flex;
     align-items: flex-end;

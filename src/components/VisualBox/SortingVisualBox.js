@@ -14,6 +14,10 @@ import {Button,
 import {ThemeProvider} from '@material-ui/styles';
 
 import Bar from './Bar/Bar';
+import BSortDesc from '../descriptions/BSortDesc';
+import QSortDesc from '../descriptions/QSortDesc';
+import ISortDesc from '../descriptions/ISortDesc';
+import SSortDesc from '../descriptions/SSortDesc';
 import bubblesort from '../../algos/sorting/bubblesort';
 import selectionsort from '../../algos/sorting/selectionsort';
 import insertionsort from '../../algos/sorting/insertionsort';
@@ -51,24 +55,29 @@ const VisualBox = (props) => {
             />
         )
     })));
+    let description = (<BSortDesc/>);
     let algorithm = bubblesort;
     let algorithmName = 'Bubble Sort'
     switch(radioValue){
         case 'bubble':
             algorithm = bubblesort;
-            algorithmName = 'Bubble Sort'
+            algorithmName = 'Bubble Sort';
+            description = (<BSortDesc/>);
             break;
         case 'selection':
             algorithm = selectionsort;
             algorithmName = 'Selection Sort';
+            description = (<SSortDesc/>);
             break;
         case 'insertion':
             algorithm = insertionsort;
             algorithmName = 'Insertion Sort'
+            description = (<ISortDesc/>);
             break;
         case 'quick':
             algorithm = quicksort;
             algorithmName = 'Quick Sort';
+            description = (<QSortDesc/>);
             break;
         default:
             algorithm = bubblesort;
@@ -94,7 +103,7 @@ const VisualBox = (props) => {
             </div>
             <ThemeProvider theme={theme}>
                 <Grid container spacing={1}>
-                    <Grid item xs={4} spacing={3}>
+                    <Grid item xs={6} sm={4} spacing={3}>
                         <FormControl component="fieldset">
                             <FormLabel component="legend">Sorting Algorithm</FormLabel>
                             <RadioGroup aria-label="algorithm" name="algorithm" value={radioValue} onChange={radioHandler}>
@@ -105,8 +114,8 @@ const VisualBox = (props) => {
                             </RadioGroup>
                         </FormControl>
                     </Grid>
-                    <Grid item xs={2} spacing={3}>
-                        <FormControl style={{width: '100%', marginBottom: '15px'}}>
+                    <Grid item xs={6} sm={3} spacing={3}>
+                        <FormControl style={{width: '80%', marginBottom: '15px'}}>
                             <InputLabel id="itemnumber-label">Number of items</InputLabel>
                             <Select
                                 labelId="itemnumber-label"
@@ -120,7 +129,7 @@ const VisualBox = (props) => {
                                 <MenuItem value={40}>40</MenuItem>
                             </Select>
                         </FormControl>
-                        <FormControl style={{width: '100%'}}>
+                        <FormControl style={{width: '80%'}}>
                             <InputLabel id="itemnumber-label">Delay time</InputLabel>
                             <Select
                                 labelId="speed-label"
@@ -134,6 +143,9 @@ const VisualBox = (props) => {
                                 <MenuItem value={1000}>1s per swap</MenuItem>
                             </Select>
                         </FormControl>
+                    </Grid>
+                    <Grid item xs={12} sm={5} spacing={3}>
+                        {description}
                     </Grid>
                 </Grid>
                 
