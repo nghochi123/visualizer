@@ -41,6 +41,23 @@ const pivotSet = async (array, setArray, setBars, width, delay, start=0, end=arr
     setBars(array.map((c, index)=>{
         let height = (c/max)*300;
         let action = 'sorted';
+        if(index === swapIndex || index === start){
+            action = 'comparing';
+        }
+        return (
+            <Bar
+                action={action}
+                key={c} 
+                height={`${height}px`} 
+                width={`${width}px`} 
+                value={c}
+            />
+        )
+    }));
+    await wait(delay*2);
+    setBars(array.map((c, index)=>{
+        let height = (c/max)*300;
+        let action = 'sorted';
         return (
             <Bar
                 action={action}
@@ -59,8 +76,8 @@ const quickSort = async (array, setArray, setBars, width, delay, left=0, right=a
     let pivotIndex;
     if(left < right){
         pivotIndex = await pivotSet(array, setArray, setBars, width, delay, left, right, max)
-        quickSort(array, setArray, setBars, width, delay, left, pivotIndex-1);
-        quickSort(array, setArray, setBars, width, delay, pivotIndex+1, right); 
+        await quickSort(array, setArray, setBars, width, delay, left, pivotIndex-1);
+        await quickSort(array, setArray, setBars, width, delay, pivotIndex+1, right); 
     }
 }
 
