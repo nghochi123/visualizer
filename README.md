@@ -12,4 +12,4 @@ Will update when project is in later stages
 
 ## Color Palette
 
-https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c
+[This](https://coolors.co/ef476f-ffd166-06d6a0-118ab2-073b4c) is the color palette used for the sorting bars.
