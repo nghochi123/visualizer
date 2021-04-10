@@ -1,14 +1,5 @@
-.mleft {
-    margin-left: 15px;
-    text-decoration: none;
+@media only screen and (max-width: 600px) {
+    .smallerscreen  {
+        font-size: 0.8rem;
+    }
 }
-
-.mleft:visited {
-    color: inherit;
-}
-
-.mleft:hover {
-    color: #999999;
-    text-decoration: none;
-}
-
