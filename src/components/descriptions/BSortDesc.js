@@ -2,7 +2,9 @@ import React from 'react';
 
 import {Typography, Table, TableCell, TableContainer, TableRow} from '@material-ui/core';
 
-const BSortDesc = (props) => {
+import * as styles from './description.module.css'
+
+export const BSortDesc = (props) => {
     return (
         <div>
             <Typography variant="h2">Bubble Sort</Typography><hr/>
@@ -30,4 +32,13 @@ const BSortDesc = (props) => {
     )
 }
 
-export default BSortDesc;
+export const BSortLegend = () => {
+    return (
+        <div style={{margin: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div className={styles.boxyellow}></div>
+            <p>Comparing</p>
+            <div className={styles.boxgreen}></div>
+            <p>Sorted</p>
+        </div>
+    )
+}

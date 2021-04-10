@@ -2,7 +2,9 @@ import React from 'react';
 
 import {Typography, Table, TableCell, TableContainer, TableRow} from '@material-ui/core';
 
-const QSortDesc = (props) => {
+import * as styles from './description.module.css';
+
+export const QSortDesc = (props) => {
     return (
         <div>
             <Typography variant="h2">Quicksort</Typography><hr/>
@@ -27,6 +29,21 @@ const QSortDesc = (props) => {
                 
             </TableContainer>
             
+        </div>
+    )
+}
+
+export const QSortLegend = () => {
+    return (
+        <div style={{margin: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div className={styles.boxblue}></div>
+            <p>Pivot</p>
+            <div className={styles.boxred}></div>
+            <p>Lower than pivot</p>
+            <div className={styles.boxgreen}></div>
+            <p>Higher than pivot</p>
+            <div className={styles.boxyellow}></div>
+            <p>Swapping pivot</p>
         </div>
     )
 }

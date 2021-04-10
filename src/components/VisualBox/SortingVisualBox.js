@@ -14,10 +14,10 @@ import {Button,
 import {ThemeProvider} from '@material-ui/styles';
 
 import Bar from './Bar/Bar';
-import BSortDesc from '../descriptions/BSortDesc';
-import QSortDesc from '../descriptions/QSortDesc';
-import ISortDesc from '../descriptions/ISortDesc';
-import SSortDesc from '../descriptions/SSortDesc';
+import {BSortDesc, BSortLegend} from '../descriptions/BSortDesc';
+import {QSortDesc, QSortLegend} from '../descriptions/QSortDesc';
+import {ISortDesc, ISortLegend} from '../descriptions/ISortDesc';
+import {SSortDesc, SSortLegend} from '../descriptions/SSortDesc';
 import bubblesort from '../../algos/sorting/bubblesort';
 import selectionsort from '../../algos/sorting/selectionsort';
 import insertionsort from '../../algos/sorting/insertionsort';
@@ -56,6 +56,7 @@ const VisualBox = (props) => {
         )
     })));
     let description = (<BSortDesc/>);
+    let legend = (<BSortLegend/>)
     let algorithm = bubblesort;
     let algorithmName = 'Bubble Sort'
     switch(radioValue){
@@ -63,24 +64,31 @@ const VisualBox = (props) => {
             algorithm = bubblesort;
             algorithmName = 'Bubble Sort';
             description = (<BSortDesc/>);
+            legend = (<BSortLegend/>);
             break;
         case 'selection':
             algorithm = selectionsort;
             algorithmName = 'Selection Sort';
             description = (<SSortDesc/>);
+            legend = (<SSortLegend/>);
             break;
         case 'insertion':
             algorithm = insertionsort;
             algorithmName = 'Insertion Sort'
             description = (<ISortDesc/>);
+            legend = (<ISortLegend/>);
             break;
         case 'quick':
             algorithm = quicksort;
             algorithmName = 'Quick Sort';
             description = (<QSortDesc/>);
+            legend = (<QSortLegend/>);
             break;
         default:
             algorithm = bubblesort;
+            algorithmName = 'Bubble Sort';
+            description = (<BSortDesc/>);
+            legend = (<BSortLegend/>);
     }
     const radioHandler = (e) =>{
         setRadioValue(e.target.value);
@@ -101,6 +109,7 @@ const VisualBox = (props) => {
                 <Button className={styles.button} variant="contained" color="primary" onClick={()=>algorithm(array, setArray, setBars, width, delay)}>Sort</Button>
                 <Button className={styles.button} variant="contained" color="primary" onClick={()=>randomize(size, setArray, setBars, width)}>Randomize</Button>
             </div>
+            {legend}
             <ThemeProvider theme={theme}>
                 <Grid container spacing={1}>
                     <Grid item xs={6} sm={4} spacing={3}>

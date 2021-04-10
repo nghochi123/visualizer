@@ -2,7 +2,9 @@ import React from 'react';
 
 import {Typography, Table, TableCell, TableContainer, TableRow} from '@material-ui/core';
 
-const ISortDesc = (props) => {
+import * as styles from './description.module.css'
+
+export const ISortDesc = (props) => {
     return (
         <div>
             <Typography variant="h2">Insertion Sort</Typography><hr/>
@@ -30,4 +32,13 @@ const ISortDesc = (props) => {
     )
 }
 
-export default ISortDesc;
+export const ISortLegend = () => {
+    return (
+        <div style={{margin: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div className={styles.boxyellow}></div>
+            <p>Moving</p>
+            <div className={styles.boxgreen}></div>
+            <p>Sorted relative to items on left</p>
+        </div>
+    )
+}
