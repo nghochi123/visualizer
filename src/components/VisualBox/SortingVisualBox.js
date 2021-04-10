@@ -58,35 +58,29 @@ const VisualBox = (props) => {
     let description = (<BSortDesc/>);
     let legend = (<BSortLegend/>)
     let algorithm = bubblesort;
-    let algorithmName = 'Bubble Sort'
     switch(radioValue){
         case 'bubble':
             algorithm = bubblesort;
-            algorithmName = 'Bubble Sort';
             description = (<BSortDesc/>);
             legend = (<BSortLegend/>);
             break;
         case 'selection':
             algorithm = selectionsort;
-            algorithmName = 'Selection Sort';
             description = (<SSortDesc/>);
             legend = (<SSortLegend/>);
             break;
         case 'insertion':
             algorithm = insertionsort;
-            algorithmName = 'Insertion Sort'
             description = (<ISortDesc/>);
             legend = (<ISortLegend/>);
             break;
         case 'quick':
             algorithm = quicksort;
-            algorithmName = 'Quick Sort';
             description = (<QSortDesc/>);
             legend = (<QSortLegend/>);
             break;
         default:
             algorithm = bubblesort;
-            algorithmName = 'Bubble Sort';
             description = (<BSortDesc/>);
             legend = (<BSortLegend/>);
     }
@@ -101,7 +95,6 @@ const VisualBox = (props) => {
     }
     return (
         <>
-            <p>Current sorting algorithm: {algorithmName}</p>
             <div className={styles.box}>
                 {bars}
             </div>
