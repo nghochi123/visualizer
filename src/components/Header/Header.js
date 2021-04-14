@@ -11,15 +11,16 @@ const Header = (props) => {
     return (
         <header className={styles.header}>
             <Grid container direction="row" justify="center" alignItems="center">
-                <Grid item xs={6}>
+                <Grid itemScope xs={6}>
                     <div style={{display: 'flex'}}>
                         <p style={{fontSize: '1.5rem'}}>Visualisation</p>
                     </div>
                 </Grid>
                 <Grid item xs={6}>
-                    <div style={{display: 'flex', justifyContent: 'right'}}>
+                    <div>
                         <p className={styles.mleft}>
-                            Toggle Dark Mode
+                            Dark Mode
+                            
                             <Switch 
                                 checked={state.darkMode} 
                                 onChange={()=>dispatch({type:'TOGGLE_THEME'})} 

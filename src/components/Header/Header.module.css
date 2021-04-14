@@ -11,5 +11,12 @@
 }
 .mleft {
     margin-left: 15px;
+    text-align: right;
 }
+
+/* @media only screen and (max-width: 600px) {
+    .mleft  {
+        display: none;
+    }
+} */
 
