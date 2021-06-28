@@ -1,0 +1,34 @@
+.boxyellow {
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+  background-color: #ffd166;
+}
+
+.boxgreen {
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+  background-color: #06d6a0;
+}
+
+.boxred {
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+  background-color: #ef476f;
+}
+
+.boxblue {
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+  background-color: #118ab2;
+}
+
+.boxdarkblue {
+  height: 15px;
+  width: 15px;
+  margin: 15px;
+  background-color: #073b4c;
+}

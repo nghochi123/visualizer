@@ -2,6 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Button, Typography } from "@material-ui/core";
 import { ToggleButtonGroup, ToggleButton } from "@material-ui/lab";
 import PathBox from "../../components/PathBox/PathBox";
+import * as styles from "./PathFinding.module.css";
+
+export const PathFinderLegend = () => {
+  return (
+    <div
+      style={{
+        margin: "15px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div className={styles.boxyellow}></div>
+      <p>Start</p>
+      <div className={styles.boxred}></div>
+      <p>End</p>
+      <div className={styles.boxdarkblue}></div>
+      <p>Wall</p>
+      <div className={styles.boxblue}></div>
+      <p>Visited</p>
+      <div className={styles.boxgreen}></div>
+      <p>Unvisited</p>
+    </div>
+  );
+};
 
 export default function PathFinding() {
   const [mode, setMode] = useState(0);
@@ -65,6 +90,10 @@ export default function PathFinding() {
         at the top left and bottom right respectively. Set up your desired walls
         and click start to begin.
       </Typography>
+      <Typography variant="body1">
+        Reset all removes walls and marks all spots as unvisited, while reset
+        path marks all spots as unvisited but retains the walls.
+      </Typography>
       <ToggleButtonGroup
         value={mode}
         exclusive
@@ -97,6 +126,7 @@ export default function PathFinding() {
       >
         Reset path
       </Button>
+      <PathFinderLegend />
       <PathBox
         mode={mode}
         layout={layout}
