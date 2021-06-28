@@ -17,7 +17,7 @@ export default function PathFinding() {
     }
     setLayout(grid);
   }, []);
-  const resetGrid = () => {
+  const resetWalls = () => {
     const grid = [];
     for (let i = 0; i < 20; i++) {
       const row = [];
@@ -25,6 +25,17 @@ export default function PathFinding() {
         row.push(false);
       }
       grid.push(row);
+    }
+    setLayout(grid);
+  };
+  const resetGrid = () => {
+    const grid = [...layout];
+    for (let i = 0; i < 20; i++) {
+      for (let j = 0; j < 35; j++) {
+        if (grid[i][j] !== true) {
+          grid[i][j] = false;
+        }
+      }
     }
     setLayout(grid);
   };
@@ -43,8 +54,11 @@ export default function PathFinding() {
         <ToggleButton value={1}>Set End</ToggleButton>
         <ToggleButton value={2}>Set Walls</ToggleButton>
       </ToggleButtonGroup>
+      <Button onClick={resetWalls} variant="outlined">
+        Reset all
+      </Button>
       <Button onClick={resetGrid} variant="outlined">
-        Reset Walls
+        Reset path
       </Button>
       <PathBox mode={mode} layout={layout} setLayout={setLayout} />
     </div>

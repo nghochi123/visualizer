@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { Button } from "@material-ui/core";
 
 import * as styles from "./PathBox.module.css";
+
+import bfs from "../../algos/pathing/bfs";
 
 const SingleBox = ({
   isStart,
   isEnd,
   isWall,
+  isVisited,
   onMouseDown,
   onMouseEnter,
   onMouseUp,
@@ -22,9 +26,11 @@ const SingleBox = ({
         height: 30,
         width: 30,
         backgroundColor: isStart
-          ? "#118ab2"
+          ? "#ffd166"
           : isEnd
           ? "#ef476f"
+          : isVisited
+          ? "#118ab2"
           : isWall
           ? "#073b4c"
           : "#06d6a0",
@@ -64,31 +70,39 @@ export default function PathBox({ mode, layout, setLayout }) {
   const wallUp = () => {
     setMouseDown(false);
   };
+  const startPath = () => {
+    bfs(start, end, layout, setLayout, endDown, end);
+  };
   return (
-    <div className={styles.grid}>
-      {layout.map((row, i) => {
-        return (
-          <div key={i} style={{ margin: 0, padding: 0 }}>
-            {row.map((box, boxi) => {
-              return (
-                <SingleBox
-                  key={boxi}
-                  row={i}
-                  col={boxi}
-                  isStart={i === start[0] && boxi === start[1]}
-                  isEnd={i === end[0] && boxi === end[1]}
-                  isWall={box}
-                  onMouseDown={
-                    mode === 0 ? startDown : mode === 1 ? endDown : wallDown
-                  }
-                  onMouseEnter={mode === 2 ? wallOver : (a, b) => null}
-                  onMouseUp={mode === 2 ? wallUp : (a, b) => null}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
+    <div className={styles.outerContainer}>
+      <div className={styles.grid}>
+        {layout.map((row, i) => {
+          return (
+            <div key={i} style={{ margin: 0, padding: 0 }}>
+              {row.map((box, boxi) => {
+                return (
+                  <SingleBox
+                    key={boxi}
+                    row={i}
+                    col={boxi}
+                    isStart={i === start[0] && boxi === start[1]}
+                    isEnd={i === end[0] && boxi === end[1]}
+                    isWall={box}
+                    isVisited={Number.isInteger(layout[i][boxi])}
+                    onMouseDown={
+                      mode === 0 ? startDown : mode === 1 ? endDown : wallDown
+                    }
+                    onMouseEnter={mode === 2 ? wallOver : (a, b) => null}
+                    onMouseUp={mode === 2 ? wallUp : (a, b) => null}
+                    refresh={toChange}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+      <Button onClick={startPath}>Start</Button>
     </div>
   );
 }
