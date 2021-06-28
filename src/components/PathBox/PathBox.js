@@ -42,7 +42,13 @@ const SingleBox = ({
   );
 };
 
-export default function PathBox({ mode, layout, setLayout }) {
+export default function PathBox({
+  mode,
+  layout,
+  setLayout,
+  isPathing,
+  setIsPathing,
+}) {
   const [start, setStart] = useState([0, 0]);
   const [end, setEnd] = useState([19, 34]);
   const [mouseDown, setMouseDown] = useState(false);
@@ -71,7 +77,7 @@ export default function PathBox({ mode, layout, setLayout }) {
     setMouseDown(false);
   };
   const startPath = () => {
-    bfs(start, end, layout, setLayout, endDown, end);
+    bfs(start, end, layout, setLayout, endDown, setIsPathing);
   };
   return (
     <div className={styles.outerContainer}>
@@ -102,7 +108,18 @@ export default function PathBox({ mode, layout, setLayout }) {
           );
         })}
       </div>
-      <Button onClick={startPath}>Start</Button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: 50,
+        }}
+      >
+        <Button disabled={isPathing} variant="outlined" onClick={startPath}>
+          Start
+        </Button>
+      </div>
     </div>
   );
 }

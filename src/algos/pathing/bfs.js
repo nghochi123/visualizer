@@ -1,7 +1,8 @@
 const dx = [0, 1, 0, -1];
 const dy = [1, 0, -1, 0];
 
-const bfs = (start, end, grid, setGrid, endDown) => {
+const bfs = (start, end, grid, setGrid, endDown, setIsPathing) => {
+  setIsPathing(true);
   const [x, y] = start;
   const [eX, eY] = end;
   let queueX = [];
@@ -34,6 +35,7 @@ const bfs = (start, end, grid, setGrid, endDown) => {
       }
     }
     if ((x === eX && y === eY) || queueX.length === 0) {
+      setIsPathing(false);
       clearInterval(interval);
     }
   }, 5);
