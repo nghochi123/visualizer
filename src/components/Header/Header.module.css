@@ -1,17 +1,26 @@
 .header {
-    padding: 1rem 0;
-    margin-bottom: 10px;
+  padding: 1rem 0;
+  margin-bottom: 10px;
 }
 .navlist {
-    display: flex;
-    list-style-type: none;
-    margin: 0;
-    justify-content: left;
-    padding-left: 0;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  justify-content: left;
+  padding-left: 0;
 }
 .mleft {
-    margin-left: 15px;
-    text-align: right;
+  margin-left: 15px;
+  text-align: right;
+}
+
+.toptext {
+  margin-right: 15px;
+}
+
+.selected {
+  font-weight: bold;
+  border-bottom: 1px solid;
 }
 
 /* @media only screen and (max-width: 600px) {
@@ -19,4 +28,3 @@
         display: none;
     }
 } */
-

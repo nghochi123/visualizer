@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from "react";
 
-import Layout from '../../components/Layout/Layout';
-import SortingVisualBox from '../../components/VisualBox/SortingVisualBox';
-
+import { GlobalStateContext } from "../../context/GlobalContextProvider";
+import Layout from "../../components/Layout/Layout";
+import SortingVisualBox from "../../components/VisualBox/SortingVisualBox";
+import PathFinding from "../PathFinding/PathFinding";
 
 const Home = () => {
-    
-    return (
-        <Layout>
-            <SortingVisualBox/>
-        </Layout>
-    )
-}
+  const display =
+    useContext(GlobalStateContext).pageType === "A" ? (
+      <SortingVisualBox />
+    ) : (
+      <PathFinding />
+    );
+
+  return <Layout>{display}</Layout>;
+};
 export default Home;
