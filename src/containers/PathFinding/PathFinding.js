@@ -29,9 +29,29 @@ export const PathFinderLegend = () => {
 };
 
 export default function PathFinding() {
+  const table = [];
+  for (let i = 0; i < 20; i++) {
+    const row = [];
+    for (let j = 0; j < 35; j++) {
+      row.push(false);
+    }
+    table.push(row);
+  }
   const [mode, setMode] = useState(0);
   const [layout, setLayout] = useState([]);
   const [isPathing, setIsPathing] = useState(false);
+  const [path, setPath] = useState(table);
+  const resetPath = () => {
+    const p = [];
+    for (let i = 0; i < 20; i++) {
+      const row = [];
+      for (let j = 0; j < 35; j++) {
+        row.push(false);
+      }
+      p.push(row);
+    }
+    setPath(p);
+  };
   useEffect(() => {
     const grid = [];
     for (let i = 0; i < 20; i++) {
@@ -53,6 +73,7 @@ export default function PathFinding() {
       grid.push(row);
     }
     setLayout(grid);
+    resetPath();
   };
   const resetGrid = () => {
     const grid = [...layout];
@@ -64,6 +85,7 @@ export default function PathFinding() {
       }
     }
     setLayout(grid);
+    resetPath();
   };
   const handleModeChange = (event, newMode) => {
     if (newMode !== null) setMode(newMode);
@@ -133,6 +155,8 @@ export default function PathFinding() {
         setLayout={setLayout}
         isPathing={isPathing}
         setIsPathing={setIsPathing}
+        path={path}
+        setPath={setPath}
       />
     </div>
   );

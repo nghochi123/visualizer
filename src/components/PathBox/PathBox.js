@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 
 import * as styles from "./PathBox.module.css";
 
@@ -10,6 +10,7 @@ const SingleBox = ({
   isEnd,
   isWall,
   isVisited,
+  isPath,
   onMouseDown,
   onMouseEnter,
   onMouseUp,
@@ -29,6 +30,8 @@ const SingleBox = ({
           ? "#ffd166"
           : isEnd
           ? "#ef476f"
+          : isPath
+          ? "#fb5607"
           : isVisited
           ? "#118ab2"
           : isWall
@@ -48,11 +51,15 @@ export default function PathBox({
   setLayout,
   isPathing,
   setIsPathing,
+  path,
+  setPath,
 }) {
   const [start, setStart] = useState([0, 0]);
   const [end, setEnd] = useState([19, 34]);
   const [mouseDown, setMouseDown] = useState(false);
   const [toChange, setToChange] = useState(false);
+  const [shortest, setShortest] = useState(-1);
+
   const startDown = (row, col) => {
     setStart([row, col]);
   };
@@ -77,8 +84,25 @@ export default function PathBox({
     setMouseDown(false);
   };
   const startPath = () => {
-    bfs(start, end, layout, setLayout, endDown, setIsPathing);
+    bfs(
+      start,
+      end,
+      layout,
+      setLayout,
+      endDown,
+      setIsPathing,
+      setPath,
+      setShortest
+    );
   };
+  const displayText =
+    shortest > 0 ? (
+      <Typography variant="body1">
+        The shortest path from start to end is: {shortest}
+      </Typography>
+    ) : shortest === -2 ? (
+      <Typography variant="body1">Unable to reach the end.</Typography>
+    ) : null;
   return (
     <div className={styles.outerContainer}>
       <div className={styles.grid}>
@@ -94,6 +118,7 @@ export default function PathBox({
                     isStart={i === start[0] && boxi === start[1]}
                     isEnd={i === end[0] && boxi === end[1]}
                     isWall={box}
+                    isPath={path[i][boxi]}
                     isVisited={Number.isInteger(layout[i][boxi])}
                     onMouseDown={
                       mode === 0 ? startDown : mode === 1 ? endDown : wallDown
@@ -111,6 +136,7 @@ export default function PathBox({
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           margin: 50,
@@ -119,6 +145,7 @@ export default function PathBox({
         <Button disabled={isPathing} variant="outlined" onClick={startPath}>
           Start
         </Button>
+        <div style={{ margin: 30 }}>{displayText}</div>
       </div>
     </div>
   );
