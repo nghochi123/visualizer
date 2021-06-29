@@ -24,6 +24,8 @@ export const PathFinderLegend = () => {
       <p>Visited</p>
       <div className={styles.boxgreen}></div>
       <p>Unvisited</p>
+      <div className={styles.boxorange}></div>
+      <p>Path</p>
     </div>
   );
 };
