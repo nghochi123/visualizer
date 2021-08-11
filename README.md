@@ -1,6 +1,6 @@
 # Algorithm Visualisation
 
-Visualisation tool to visualise simple algorithms. [Live Demo](https://hcvisualisation.netlify.app/)
+Visualisation tool to visualise simple algorithms. [Live Demo](https://vis.nghochi.xyz/)
 
 ![Visualisation App](https://user-images.githubusercontent.com/35862661/114258548-c242db80-99f9-11eb-8399-177fe87cae38.png)
 
