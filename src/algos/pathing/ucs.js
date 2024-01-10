@@ -55,31 +55,34 @@ const ucs = (
             }
         }
         if ((x === eX && y === eY) || queueX.length === 0) {
-            if (x === eX && y === eY) setShortest(z);
-            else setShortest(-2);
-            setIsPathing(false);
-            let [pX, pY] = end;
-            let tb = [];
-            for (let i = 0; i < mazeConstants.ROWS; i++) {
-                const row = [];
-                for (let j = 0; j < mazeConstants.COLS; j++) {
-                    row.push(false);
+            if (x === eX && y === eY) {
+                let [pX, pY] = end;
+                let tb = [];
+                for (let i = 0; i < mazeConstants.ROWS; i++) {
+                    const row = [];
+                    for (let j = 0; j < mazeConstants.COLS; j++) {
+                        row.push(false);
+                    }
+                    tb.push(row);
                 }
-                tb.push(row);
+                let interval2 = setInterval(() => {
+                    tb[pX][pY] = true;
+                    if (prev[pX][pY]) [pX, pY] = prev[pX][pY];
+                    setPath(tb);
+                    endDown(end[0], end[1]);
+                    if (
+                        (pX === start[0] && pY === start[1]) ||
+                        (pX === prev[pX][pY][0] && pY === prev[pX][pY][1])
+                    ) {
+                        clearInterval(interval2);
+                    }
+                }, 5);
+                setShortest(z);
+            } else {
+                setShortest(-2);
             }
-            let interval2 = setInterval(() => {
-                tb[pX][pY] = true;
-                if (prev[pX][pY]) [pX, pY] = prev[pX][pY];
-                setPath(tb);
-                endDown(end[0], end[1]);
-                if (
-                    (pX === start[0] && pY === start[1]) ||
-                    (pX === prev[pX][pY][0] && pY === prev[pX][pY][1])
-                ) {
-                    clearInterval(interval2);
-                }
-            }, 5);
             clearInterval(interval);
+            setIsPathing(false);
         }
     }, 5);
 };

@@ -5,7 +5,7 @@ import PriorityQueue from "../../helperfunctions/priorityqueue";
 const dx = [0, 1, 0, -1];
 const dy = [1, 0, -1, 0];
 
-const greedy = (
+const astar = (
     start,
     end,
     grid,
@@ -32,6 +32,7 @@ const greedy = (
     let interval = setInterval(() => {
         // eslint-disable-next-line
         let [f, x, y, g] = heuristicQueue.dequeue();
+        // console.log("HELLO");
         for (let i = 0; i < 4; i++) {
             let tempX = x + dx[i];
             let tempY = y + dy[i];
@@ -55,33 +56,37 @@ const greedy = (
             }
         }
         if ((x === eX && y === eY) || heuristicQueue.isEmpty()) {
-            if (x === eX && y === eY) setShortest(g);
-            else setShortest(-2);
-            setIsPathing(false);
-            let [pX, pY] = end;
-            let tb = [];
-            for (let i = 0; i < mazeConstants.ROWS; i++) {
-                const row = [];
-                for (let j = 0; j < mazeConstants.COLS; j++) {
-                    row.push(false);
+            if (x === eX && y === eY) {
+                let [pX, pY] = end;
+                let tb = [];
+                for (let i = 0; i < mazeConstants.ROWS; i++) {
+                    const row = [];
+                    for (let j = 0; j < mazeConstants.COLS; j++) {
+                        row.push(false);
+                    }
+                    tb.push(row);
                 }
-                tb.push(row);
+                let interval2 = setInterval(() => {
+                    console.log("HELLO");
+                    tb[pX][pY] = true;
+                    if (prev[pX][pY]) [pX, pY] = prev[pX][pY];
+                    setPath(tb);
+                    endDown(end[0], end[1]);
+                    if (
+                        (pX === start[0] && pY === start[1]) ||
+                        (pX === prev[pX][pY][0] && pY === prev[pX][pY][1])
+                    ) {
+                        clearInterval(interval2);
+                    }
+                }, 5);
+                setShortest(g);
+            } else {
+                setShortest(-2);
             }
-            let interval2 = setInterval(() => {
-                tb[pX][pY] = true;
-                if (prev[pX][pY]) [pX, pY] = prev[pX][pY];
-                setPath(tb);
-                endDown(end[0], end[1]);
-                if (
-                    (pX === start[0] && pY === start[1]) ||
-                    (pX === prev[pX][pY][0] && pY === prev[pX][pY][1])
-                ) {
-                    clearInterval(interval2);
-                }
-            }, 5);
             clearInterval(interval);
+            setIsPathing(false);
         }
     }, 5);
 };
 
-export default greedy;
+export default astar;
