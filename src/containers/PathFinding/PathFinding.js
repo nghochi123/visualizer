@@ -131,7 +131,7 @@ export default function PathFinding() {
         <div>
             <Grid
                 container
-                spacing={2}
+                // spacing={2}
                 alignItems="center"
                 justifyContent="center"
             >
@@ -156,7 +156,7 @@ export default function PathFinding() {
                 </Grid>
                 <Grid item>
                     <Button
-                        style={{ marginLeft: 30 }}
+                        // style={{ marginLeft: 30 }}
                         disabled={isPathing}
                         onClick={resetWalls}
                         variant="outlined"

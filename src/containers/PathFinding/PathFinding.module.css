@@ -74,6 +74,6 @@
         border-bottom: solid #fb5607;
     }
     .pathsettings {
-        display: none;
+        display: none !important;
     }
 }
