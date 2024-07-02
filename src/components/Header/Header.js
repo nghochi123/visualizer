@@ -36,7 +36,7 @@ const Header = (props) => {
                             }
                             disabled={state.pageType === "A"}
                         >
-                            Algorithms
+                            Algo
                         </Button>
                         <Button
                             onClick={() =>
@@ -47,7 +47,7 @@ const Header = (props) => {
                             }
                             disabled={state.pageType !== "A"}
                         >
-                            Path-finder
+                            Path
                         </Button>
                     </div>
                 </Grid>

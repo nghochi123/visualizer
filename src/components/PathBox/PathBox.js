@@ -18,9 +18,8 @@ const SingleBox = ({
         <div
             onMouseDown={() => onMouseDown(row, col)}
             id={`${row}-${col}`}
+            className={styles.pathbox}
             style={{
-                height: 30,
-                width: 30,
                 backgroundColor: isStart
                     ? "#ffd166"
                     : isEnd

@@ -19,8 +19,8 @@ const selectionSortDescription = {
     besttime: "O(n^2)",
     averagetime: "O(n^2)",
     legend: {
-        yellow: "Searching for lowest",
-        red: "Current lowest",
+        yellow: "Searching",
+        red: "Lowest",
         green: "Sorted",
     },
 };
@@ -34,7 +34,7 @@ const insertionSortDescription = {
     averagetime: "O(n^2)",
     legend: {
         yellow: "Moving",
-        green: "Sorted relative to items on left",
+        green: "Sorted",
     },
 };
 
@@ -47,9 +47,9 @@ const quickSortDescription = {
     averagetime: "O(nlog(n))",
     legend: {
         blue: "Pivot",
-        red: "Lower than pivot",
-        green: "Higher than pivot",
-        yellow: "Swapping pivot",
+        red: "Lower",
+        green: "Higher",
+        yellow: "Swapping",
     },
 };
 

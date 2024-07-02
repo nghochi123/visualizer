@@ -1,41 +1,79 @@
 .boxyellow {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #ffd166;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #ffd166;
 }
 
 .boxgreen {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #06d6a0;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #06d6a0;
 }
 
 .boxred {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #ef476f;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #ef476f;
 }
 
 .boxblue {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #118ab2;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #118ab2;
 }
 
 .boxdarkblue {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #073b4c;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #073b4c;
 }
 
 .boxorange {
-  height: 15px;
-  width: 15px;
-  margin: 10px;
-  background-color: #fb5607;
+    height: 15px;
+    width: 15px;
+    margin: 10px;
+    background-color: #fb5607;
+}
+
+@media only screen and (max-width: 1280px) {
+    .box {
+        display: none;
+    }
+    .textyellow {
+        margin: 10px;
+        border-bottom: solid #ffd166;
+    }
+
+    .textgreen {
+        margin: 10px;
+        border-bottom: solid #06d6a0;
+    }
+
+    .textred {
+        margin: 10px;
+        border-bottom: solid #ef476f;
+    }
+
+    .textblue {
+        margin: 10px;
+        border-bottom: solid #118ab2;
+    }
+
+    .textdarkblue {
+        margin: 10px;
+        border-bottom: solid #073b4c;
+    }
+
+    .textorange {
+        margin: 10px;
+        border-bottom: solid #fb5607;
+    }
+    .pathsettings {
+        display: none;
+    }
 }

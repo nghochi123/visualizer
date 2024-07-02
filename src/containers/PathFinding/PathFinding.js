@@ -41,18 +41,18 @@ const PathFinderLegend = () => {
                 justifyContent: "center",
             }}
         >
-            <div className={styles.boxyellow}></div>
-            <p>Start</p>
-            <div className={styles.boxred}></div>
-            <p>End</p>
-            <div className={styles.boxdarkblue}></div>
-            <p>Wall</p>
-            <div className={styles.boxblue}></div>
-            <p>Visited</p>
-            <div className={styles.boxgreen}></div>
-            <p>Unvisited</p>
-            <div className={styles.boxorange}></div>
-            <p>Path</p>
+            <div className={`${styles.box} ${styles.boxyellow}`}></div>
+            <p className={styles.textyellow}>Start</p>
+            <div className={`${styles.box} ${styles.boxred}`}></div>
+            <p className={styles.textred}>End</p>
+            <div className={`${styles.box} ${styles.boxdarkblue}`}></div>
+            <p className={styles.textdarkblue}>Wall</p>
+            <div className={`${styles.box} ${styles.boxblue}`}></div>
+            <p className={styles.textblue}>Visited</p>
+            <div className={`${styles.box} ${styles.boxgreen}`}></div>
+            <p className={styles.textgreen}>Unvisited</p>
+            <div className={`${styles.box} ${styles.boxorange}`}></div>
+            <p className={styles.textorange}>Path</p>
         </div>
     );
 };
@@ -141,6 +141,7 @@ export default function PathFinding() {
                         exclusive
                         onChange={handleModeChange}
                         style={{ margin: mazeConstants.ROWS }}
+                        className={styles.pathsettings}
                     >
                         <ToggleButton disabled={isPathing} value={0}>
                             Set Start
@@ -163,7 +164,11 @@ export default function PathFinding() {
                         Reset
                     </Button>
                 </Grid>
-                <Grid item style={{ width: 400, marginLeft: 30 }}>
+                <Grid
+                    item
+                    style={{ width: 400, marginLeft: 30 }}
+                    className={styles.pathsettings}
+                >
                     <Typography gutterBottom>Openness</Typography>
                     <Slider
                         min={0.2}
@@ -208,22 +213,22 @@ export default function PathFinding() {
                             <FormControlLabel
                                 value="ucs"
                                 control={<Radio />}
-                                label="Uniform Cost Search"
+                                label="UCS"
                             />
                             <FormControlLabel
                                 value="dfs"
                                 control={<Radio />}
-                                label="Depth First Search"
+                                label="DFS"
                             />
                             <FormControlLabel
                                 value="greedy"
                                 control={<Radio />}
-                                label="Greedy Search"
+                                label="Greedy"
                             />
                             <FormControlLabel
                                 value="astar"
                                 control={<Radio />}
-                                label="A* Search"
+                                label="A*"
                             />
                         </RadioGroup>
                     </FormControl>
