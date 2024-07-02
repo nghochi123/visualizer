@@ -11,15 +11,19 @@ Was wondering if I could make a visualisation tool similar to that of [VisuAlgo]
 ## Features
 
 - Algorithms currently included:
-  - Bubble Sort
+  - Bubblesort
   - Insertion Sort
   - Selection Sort
   - Quicksort
   - Breadth First Search
+- Pathfinding algorithms included:
+  - Uniform Cost Search (Breadth First Search since same cost)
+  - Depth First Search
+  - Greedy Search
+  - A* Search
 - Description of algorithm
 - Dark/Light mode toggle
 - Color coded bars
-- Path finder for BFS
 
 ## Usage
 
@@ -29,23 +33,13 @@ Just select the algorithm, the number of items (bars) to display, the delay time
 
 For pathfinder:
 
-Set up start and end points, then build walls by clicking and dragging. Click start once you're done, and watch as the algorithm attempts to search for the endpoint.
-
-Reset all resets both the path and walls, while reset path only resets the path, keeping the walls intact.
-
-## Known issues
-
-- Algorithms get slower over time despite not changing the delay time.
+Reset to re-generate maze. You can add and remove walls manually if desired by clicking on set walls and clicking on the grids you desire to add or remove walls to or from. Start and end positions are also settable.
 
 ## Tech/Frameworks used
 
 - [ReactJS](https://reactjs.org/)
 - [create-react-app](https://github.com/facebook/create-react-app)
 - [Material UI](https://material-ui.com/)
-
-## Future additions
-
-Looking to add more algorithms/data structures such as linked lists/graph stuff.
 
 ## Color Palette
 
